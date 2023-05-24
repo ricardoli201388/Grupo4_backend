@@ -6,4 +6,4 @@ class Loaders{
     }
 }
 
-module.exports = new Loaders();
+module.exports = new Loaders(); 
