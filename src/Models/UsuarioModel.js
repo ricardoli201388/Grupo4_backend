@@ -7,6 +7,7 @@ const UsuarioSchema = new Schema ({
     senha : String,
     nome : String,
     cargo : String,
+    status: String
 })
 
 const UsuarioModel = mongoose.model('usuarios', UsuarioSchema);
