@@ -9,7 +9,7 @@ class SessoesController {
     }
 
     async read(req, res){
-        const sessoes = await SessoesModel.find();
+        const sessoes = await SessoesModel.find().populate('id_usuario','-senha');
 
         return res.status(200).json(sessoes);
     }
