@@ -1,6 +1,7 @@
 const UsuarioModel = require("../Models/UsuarioModel");
 
 class UsuarioController {
+
     async create(req, res){
         const usuario = await UsuarioModel.create(req.body);
 
@@ -17,7 +18,12 @@ class UsuarioController {
         
     }
 
-    delete(req, res){
+    async delete(req, res){
+        const { id } = req.params 
+
+        await UsuarioModel.findByIdAndDelete(id);
+        
+        return res.status(200).json({"mensagem": "Usuário deletado com sucesso!"});
         
     }
 
