@@ -27,11 +27,9 @@ class UsuarioController {
     async update(req, res){
         try{
             const { id } = req.params;
-            const usuario = await UsuarioModel.findByIdAndUpdate(id, req.body,{ new: true })
-
-            //const usuariosEncontrado = await UsuarioModel.findById(id);
-            //if(!usuariosEncontrado) return res.status(404).json({message: "Usuário Não encontrado"});
-            //const usuario = await usuariosEncontrado.set(req.body).save();
+            const usuariosEncontrado = await UsuarioModel.findById(id);
+            if(!usuariosEncontrado) return res.status(404).json({message: "Usuário Não encontrado"});
+            const usuario = await usuariosEncontrado.set(req.body).save();
     
             res.status(200).json(usuario);
 
