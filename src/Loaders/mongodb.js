@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 
 async function startDB(){
-    await mongoose.connect('mongodb+srv://ricardoli:zWV2GSVEdsTd33XM@grupo4backend.b0tz4kc.mongodb.net/?retryWrites=true&w=majority')
+    await mongoose.connect(process.env.MONGO_URI);
+
+    console.log("Banco de dados inicializado");
 }
 
 module.exports = startDB; 
