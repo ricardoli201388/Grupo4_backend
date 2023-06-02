@@ -37,7 +37,6 @@ UsuarioSchema.pre("save", async function(next){
 
 UsuarioSchema.pre("deleteOne",{ document: true, query: false }, async function(){
     const usuario = this;
-
     return SessoesModel.deleteOne({ id_usuario: usuario._id });
 });
 
